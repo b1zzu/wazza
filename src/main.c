@@ -5,7 +5,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 
-#include "server.c"
+#include "server.h"
 
 /**
  * Read the HTTP request form the client file descriptor in the http_request object
@@ -77,7 +77,7 @@ int parse_http_request(int client_fd)
         if (headers_len >= headers_max_len)
         {
             headers_max_len += 32;
-            headers == realloc(headers, headers_max_len);
+            headers = realloc(headers, headers_max_len);
             if (headers == NULL)
             {
                 perror("headers: realloc");

@@ -1,14 +1,9 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
+#include <netinet/ip.h>
 #include <arpa/inet.h>
 
-struct net_stream
-{
-    int io_fd;
-};
+#include "server.h"
 
 int server(uint16_t port, void (*callback)(int client_fd))
 {

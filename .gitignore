@@ -1,2 +1,4 @@
 .vscode
+*.o
 wazza
+wazza_test
