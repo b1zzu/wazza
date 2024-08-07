@@ -34,8 +34,9 @@ $(TARGET): $(OBJS) src/main.c
 $(TARGET)_test: $(OBJS) $(TEST_OBJS) test/main.c
 	$(CC) $(CFLAGS) -lcheck -o $@ $^
 
-check: $(TARGET)_test
+check: $(TARGET)_test $(TARGET)
 	./$(TARGET)_test
+	./test/integration_test.sh $(TARGET)
 
 clean:
 	rm -f $(OBJS) $(TARGET)

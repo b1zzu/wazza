@@ -2,3 +2,4 @@
 *.o
 wazza
 wazza_test
+integration_test_server.log
