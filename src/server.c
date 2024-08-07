@@ -1,5 +1,3 @@
-#define _GNU_SOURCE
-
 #include <stdio.h>
 #include <errno.h>
 #include <unistd.h>
@@ -27,7 +25,7 @@ void handle_server_sigint(int sig)
 int server(uint16_t port, void (*callback)(int client_fd))
 {
     int result;
-    sighandler_t old_sigint_handler;
+    void *old_sigint_handler;
     struct sockaddr_in server_address;
     struct sockaddr_in client_address;
     socklen_t client_address_len = sizeof(client_address);
